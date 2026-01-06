@@ -12,11 +12,11 @@ async function getData(params) {
         }else{
             //converts response into json we can use
             const data = await response.json()
-            console.log("success")
-            console.log(data)
+            return data
         }
     }catch(error){
         console.log(error)
     }
 }
-getData()
+const data = getData()
+
