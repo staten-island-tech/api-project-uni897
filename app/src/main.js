@@ -12,11 +12,20 @@ async function getData(params) {
         }else{
             //converts response into json we can use
             const data = await response.json()
+            console.log(data)
             return data
         }
     }catch(error){
         console.log(error)
     }
 }
-const data = getData()
+const data = await getData()
+
+function addOption(){
+    console.log(Array.from(data))
+    Array.from(data.rates).forEach((name, rate) => {
+        console.log(name, rate)
+    });
+}
+addOption()
 
