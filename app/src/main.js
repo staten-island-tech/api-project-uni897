@@ -19,13 +19,16 @@ async function getData(params) {
         console.log(error)
     }
 }
-const data = await getData()
-
-function addOption(){
-    console.log(Array.from(data))
-    Array.from(data.rates).forEach((name, rate) => {
+function addOption(data){
+    Object.entries(data.rates).forEach(([name, rate]) => {
         console.log(name, rate)
     });
 }
-addOption()
+
+async function main(){
+    const data = await getData()
+    addOption(data)
+}
+
+main()
 
