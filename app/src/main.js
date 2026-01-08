@@ -20,8 +20,15 @@ async function getData(params) {
     }
 }
 function addOption(data){
+    const select1 = document.getElementById("select1")
+    const select2 = document.getElementById("select2")
     Object.entries(data.rates).forEach(([name, rate]) => {
-        console.log(name, rate)
+        const option = document.createElement("option");
+        option.text = name;
+        select1.add(option);
+        const option2 = document.createElement("option");
+        option2.text = name;
+        select2.add(option2);
     });
 }
 
