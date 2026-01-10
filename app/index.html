@@ -9,17 +9,23 @@
   <h1 class="text-center text-3xl font-bold underline text-white">
     Currency Exchange
   </h1>
-  <div class="bg-red-400 border-red-300 border-8 rounded-3xl w-200 h-150 m-auto mt-20 flex flex-col gap-10 justify-center items-center">
-    <select id="select1" class="first cursor-pointer">
+  <div class="bg-red-400 border-red-300 border-8 rounded-3xl w-200 h-150 m-auto mt-[3vh] flex flex-col gap-15 justify-center items-center">
+    <select id="select1" class="first cursor-pointer bg-white w-1/4 rounded-full text-center">
       <option>Select Currency</option>
     </select>
-    <input class="rounded-3xl border px-5 py-4 focus:outline-none focus:ring-3 bg-white focus:ring-indigo-500 hover:ring-3 hover:ring-indigo-500" type="number" placeholder="Enter Number">
-    <button class="rounded-3xl border-yellow-200 border-3 bg-yellow-400 cursor-pointer font-bold text-white px-10 py-4">Convert</button>
-    <select id="select2" class="second">
+    
+    <input id="current" class="rounded-3xl border px-5 py-4 focus:outline-none focus:ring-5 bg-white focus:ring-yellow-300 hover:ring-5 hover:ring-yellow-300" type="number" placeholder="Enter Number">
+    
+    <div class="flex gap-4 w-full justify-center">
+      <button id="button" class="rounded-3xl border-yellow-200 border-3 bg-yellow-400 cursor-pointer font-bold text-white px-10 py-4">Convert</button>
+      <button id="switch" class="rounded-3xl border-yellow-300 border-3 bg-yellow-500 cursor-pointer font-bold text-white px-10 py-4">Switch</button>
+    </div>
+
+    <select id="select2" class="second bg-white w-1/4 rounded-full text-center">
       <option>Select Currency</option>
     </select>
 
-    <a>Amount: </a>
+    <a id="converted" class="bg-white w-1/2 rounded-full text-center">Amount: </a>
  </div>
 </body>
 <script type="module" src="src/main.js"></script>

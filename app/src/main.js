@@ -12,7 +12,6 @@ async function getData(params) {
         }else{
             //converts response into json we can use
             const data = await response.json()
-            console.log(data)
             return data
         }
     }catch(error){
@@ -38,8 +37,35 @@ async function main(){
 }
 
 async function convert(){
-    
+    const current = document.getElementById("current")
+    const converted = document.getElementById("converted")
+    const select1 = document.getElementById("select1")
+    const select2 = document.getElementById("select2")
+    try{
+        //get data from api
+        const response = await fetch(`/api/v1/convert?api_key=${apiKey}&from=${select1.value}&to=${select2.value}&amount=${current.value}`)
+        if(response.status != 200){
+            throw new Error(response)
+        }else{
+            //converts response into json we can use
+            const data = await response.json()
+            converted.textContent = `Amount: ${Number(current.value).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${select1.value} = ${Number(data.response.value).toLocaleString('en-US',{ minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${select2.value}` 
+            console.log(data)
+        }
+    }catch(error){
+        converted.textContent = "Please select a currency or select an amount"
+    }
+}
+
+function switcharoo(){
+    let select1 = document.getElementById("select1")
+    let select2 = document.getElementById("select2")
+    let temp = select1.value
+    select1.value = select2.value
+    select2.value = temp
 }
 
 main()
 
+document.getElementById("button").addEventListener("click", () => convert())
+document.getElementById("switch").addEventListener("click", () => switcharoo())
