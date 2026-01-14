@@ -6,7 +6,7 @@ export default defineConfig({
     tailwindcss(),
   ],
 
-   server: {
+   /* server: {
     proxy: {
       '/api': {
         target: 'https://api.currencyscoop.com',
@@ -14,7 +14,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
-  },
+  }, */
 })
 
 
