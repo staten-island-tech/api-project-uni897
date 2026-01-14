@@ -44,7 +44,7 @@ async function convert(){
     const select2 = document.getElementById("select2")
     try{
         //get data from api
-        const response = await fetch(`/api/v1/convert?api_key=${apiKey}&from=${select1.value}&to=${select2.value}&amount=${current.value}`)
+        const response = await fetch(`https://api.currencyscoop.com/v1/convert?api_key=${apiKey}&from=${select1.value}&to=${select2.value}&amount=${current.value}`)
         if(response.status != 200){
             throw new Error(response)
         }else{
